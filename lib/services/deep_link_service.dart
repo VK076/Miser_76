@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:uni_links/uni_links.dart';
-import 'package:flutter/services.dart' show PlatformException;
+import 'package:app_links/app_links.dart';
 import 'smart_parser_service.dart';
 import '../models/expense.dart';
 import '../services/expense_database.dart';
@@ -9,6 +8,7 @@ import '../constants/currency.dart';
 
 class DeepLinkService {
   StreamSubscription? _sub;
+  final AppLinks _appLinks = AppLinks();
   final SmartParserService _parser = SmartParserService();
   final ExpenseDatabase _db = ExpenseDatabase();
   
@@ -18,22 +18,20 @@ class DeepLinkService {
   /// Initialize deep link listener
   void initUniLinks() async {
     // 1. Handle link when app is in background/foreground (Stream)
-    _sub = uriLinkStream.listen((Uri? uri) {
-      if (uri != null) {
-        _processUri(uri);
-      }
+    _sub = _appLinks.uriLinkStream.listen((Uri uri) {
+      _processUri(uri);
     }, onError: (err) {
       print("Deep Link Error: $err");
     });
 
     // 2. Handle link when app is closed (Initial Link)
     try {
-      final initialUri = await getInitialUri();
+      final initialUri = await _appLinks.getInitialLink();
       if (initialUri != null) {
         _processUri(initialUri);
       }
-    } on PlatformException {
-      print("Failed to get initial link");
+    } catch (e) {
+      print("Failed to get initial link: $e");
     }
   }
 

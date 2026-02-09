@@ -116,17 +116,71 @@ class SmartParserService {
     return text.replaceAll(RegExp(word, caseSensitive: false), '').trim();
   }
 
-  // Simple keyword mapping for category guessing
+  // Comprehensive keyword mapping for category guessing
   String _guessCategory(String text) {
     final Map<String, List<String>> keywords = {
-      'Food & Dining': ['lunch', 'dinner', 'breakfast', 'coffee', 'burger', 'pizza', 'restaurant'],
-      'Transport': ['taxi', 'uber', 'bus', 'train', 'fuel', 'gas', 'ticket'],
-      'Groceries': ['milk', 'bread', 'vegetables', 'fruits', 'supermarket'],
-      'Entertainment': ['movie', 'cinema', 'game', 'netflix', 'spotify'],
-      'Bills': ['electric', 'water', 'phone', 'internet', 'rent'],
-      'Shopping': ['clothes', 'shoes', 'amazon'],
+      'Food & Dining': [
+        // Meals
+        'lunch', 'dinner', 'breakfast', 'brunch', 'snack',
+        // Beverages
+        'coffee', 'tea', 'juice', 'smoothie', 'shake', 'drink', 'soda', 'beer', 'wine',
+        // Food items
+        'burger', 'pizza', 'sandwich', 'pasta', 'rice', 'noodles', 'biryani',
+        'chicken', 'fish', 'meat', 'salad', 'soup',
+        // Places
+        'restaurant', 'cafe', 'cafeteria', 'canteen', 'dhaba', 'hotel',
+        'swiggy', 'zomato', 'ubereats', 'mcdonald', 'kfc', 'dominos', 'subway',
+      ],
+      'Groceries': [
+        // Provisions
+        'oil', 'ghee', 'butter', 'flour', 'atta', 'rice', 'dal', 'sugar', 'salt',
+        'spices', 'masala', 'tea', 'coffee powder',
+        // Dairy
+        'milk', 'curd', 'yogurt', 'cheese', 'paneer',
+        // Produce
+        'vegetables', 'fruits', 'tomato', 'onion', 'potato', 'banana', 'apple',
+        // Packaged
+        'bread', 'biscuit', 'cookies', 'chips', 'noodles packet',
+        // Stores
+        'supermarket', 'grocery', 'kirana', 'dmart', 'reliance fresh', 'bigbasket',
+      ],
+      'Transport': [
+        'taxi', 'uber', 'ola', 'rapido', 'auto', 'rickshaw',
+        'bus', 'train', 'metro', 'flight', 'cab',
+        'fuel', 'petrol', 'diesel', 'gas', 'cng',
+        'parking', 'toll', 'ticket', 'pass',
+      ],
+      'Entertainment': [
+        'movie', 'cinema', 'theatre', 'film', 'show',
+        'netflix', 'prime', 'hotstar', 'spotify', 'youtube',
+        'game', 'gaming', 'playstation', 'xbox',
+        'concert', 'event', 'party', 'club',
+      ],
+      'Bills': [
+        'electricity', 'electric', 'power', 'eb',
+        'water', 'gas cylinder', 'lpg',
+        'phone', 'mobile', 'recharge', 'prepaid', 'postpaid',
+        'internet', 'wifi', 'broadband', 'airtel', 'jio', 'vi',
+        'rent', 'maintenance', 'society',
+      ],
+      'Shopping': [
+        'clothes', 'shirt', 'pant', 'dress', 'shoes', 'sandal',
+        'amazon', 'flipkart', 'myntra', 'ajio',
+        'electronics', 'mobile', 'laptop', 'headphone',
+        'gift', 'shopping', 'mall',
+      ],
+      'Health': [
+        'medicine', 'pharmacy', 'medical', 'doctor', 'hospital',
+        'clinic', 'checkup', 'test', 'lab',
+        'gym', 'fitness', 'yoga',
+      ],
+      'Education': [
+        'book', 'course', 'class', 'tuition', 'coaching',
+        'school', 'college', 'university', 'fees',
+      ],
     };
 
+    // Check each category's keywords
     for (var entry in keywords.entries) {
       for (var keyword in entry.value) {
         if (text.contains(keyword)) {

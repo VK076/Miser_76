@@ -22,6 +22,7 @@ import 'services/goal_database.dart';
 import 'services/notification_service.dart';
 import 'services/sync_service.dart';
 import 'services/deep_link_service.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   // Ensure Flutter is initialized
@@ -148,6 +149,7 @@ class _MyAppState extends State<MyApp> {
         error: AppColors.error,
       ),
       scaffoldBackgroundColor: AppColors.background,
+      textTheme: GoogleFonts.interTextTheme(),
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.surface,
         elevation: 0,
@@ -202,26 +204,6 @@ class _MyAppState extends State<MyApp> {
         foregroundColor: Colors.white,
         elevation: AppDimensions.elevationMedium,
       ),
-      textTheme: const TextTheme(
-        displayLarge: TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.w700,
-          color: AppColors.textPrimary,
-        ),
-        displayMedium: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.w600,
-          color: AppColors.textPrimary,
-        ),
-        bodyLarge: TextStyle(
-          fontSize: 16,
-          color: AppColors.textPrimary,
-        ),
-        bodyMedium: TextStyle(
-          fontSize: 14,
-          color: AppColors.textSecondary,
-        ),
-      ),
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: {
           TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
@@ -244,6 +226,7 @@ class _MyAppState extends State<MyApp> {
         error: AppColors.error,
       ),
       scaffoldBackgroundColor: AppColors.darkBackground,
+      textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.darkSurface,
         elevation: 0,
@@ -297,26 +280,6 @@ class _MyAppState extends State<MyApp> {
         backgroundColor: AppColors.primaryLight,
         foregroundColor: AppColors.darkBackground,
         elevation: AppDimensions.elevationMedium,
-      ),
-      textTheme: const TextTheme(
-        displayLarge: TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.w700,
-          color: AppColors.darkTextPrimary,
-        ),
-        displayMedium: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.w600,
-          color: AppColors.darkTextPrimary,
-        ),
-        bodyLarge: TextStyle(
-          fontSize: 16,
-          color: AppColors.darkTextPrimary,
-        ),
-        bodyMedium: TextStyle(
-          fontSize: 14,
-          color: AppColors.darkTextSecondary,
-        ),
       ),
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: {

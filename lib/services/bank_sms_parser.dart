@@ -250,7 +250,6 @@ class ParsedTransaction {
       category: category,
       description: description,
       date: DateTime.now(),
-      note: 'Auto-captured from SMS (${confidence}% confident)',
     );
   }
 
