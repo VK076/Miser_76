@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Account – FinTrack</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f7f9fc;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0A73B7, #05C3A3);
+            color: white;
+            padding: 48px 24px 36px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            opacity: 0.85;
+            font-size: 0.95rem;
+        }
+
+        main {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 24px 60px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #0A73B7;
+            margin-bottom: 12px;
+        }
+
+        p,
+        li {
+            font-size: 0.97rem;
+            color: #444;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .steps li {
+            counter-increment: step-counter;
+            padding: 10px 10px 10px 44px;
+            position: relative;
+            border-left: 3px solid #e0ecf8;
+            margin-bottom: 12px;
+        }
+
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -16px;
+            top: 8px;
+            background: #0A73B7;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+
+        .email-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #0A73B7;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.97rem;
+        }
+
+        .email-btn:hover {
+            background: #085d96;
+        }
+
+        a {
+            color: #0A73B7;
+        }
+
+        .updated {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 48px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Delete Your Account</h1>
+        <p>FinTrack – Personal Finance Manager</p>
+    </header>
+
+    <main>
+
+        <div class="card">
+            <h2>Option 1 — Delete from within the App (Recommended)</h2>
+            <p>You can delete your account and all associated data directly from the FinTrack app:</p>
+            <ol class="steps">
+                <li>Open the <strong>FinTrack</strong> app on your device</li>
+                <li>Tap the <strong>Settings</strong> icon (bottom navigation or profile menu)</li>
+                <li>Scroll down and tap <strong>"Delete Account"</strong></li>
+                <li>Confirm the deletion when prompted</li>
+            </ol>
+            <div class="warning">
+                ⚠️ This will permanently delete your account and all your financial data from our servers. This action
+                cannot be undone.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Option 2 — Request Deletion by Email</h2>
+            <p>
+                If you are unable to access the app, you can request account deletion by emailing us.
+                We will process your request within <strong>30 days</strong>.
+            </p>
+            <ul>
+                <li>Send an email to: <a href="mailto:support@miser.financeapp">support@miser.financeapp</a></li>
+                <li>Subject line: <strong>"Account Deletion Request"</strong></li>
+                <li>Include the email address associated with your FinTrack account</li>
+            </ul>
+            <a class="email-btn" href="mailto:support@miser.financeapp?subject=Account%20Deletion%20Request">
+                Email Us to Delete Account
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>What Data Gets Deleted?</h2>
+            <ul>
+                <li>✅ Your Google/Apple account link (authentication)</li>
+                <li>✅ All expense, income, and budget records</li>
+                <li>✅ All goals, wallets, and settings</li>
+                <li>✅ All cloud-synced data from Firebase/Firestore</li>
+            </ul>
+            <p style="margin-top:12px;">
+                Data that may be retained: Anonymized, aggregated analytics data that cannot be linked back to you
+                (retained for up to 90 days).
+            </p>
+        </div>
+
+        <p class="updated">Last updated: March 6, 2026 · <a href="privacy-policy.html">Privacy Policy</a></p>
+
+    </main>
+</body>
+
+</html>
